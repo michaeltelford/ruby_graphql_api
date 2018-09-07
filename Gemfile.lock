@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    agoo (2.5.1)
+    graphql (1.8.8)
+    minitest (5.11.3)
+    oj (3.6.7)
+    rack (2.0.5)
+    rack-jsonparser (1.0.2)
+      oj (~> 3)
+      rack (~> 2)
+    rake (12.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  agoo
+  graphql
+  minitest
+  rack
+  rack-jsonparser
+  rake
+
+BUNDLED WITH
+   1.16.4
