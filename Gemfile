@@ -5,4 +5,8 @@ gem "rack"
 gem "agoo"
 gem "rack-jsonparser"
 gem "graphql"
-gem "minitest"
+
+group :development, :test do
+    gem "minitest"
+    gem "pry"
+end
