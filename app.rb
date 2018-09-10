@@ -6,13 +6,13 @@ class GraphQL
     def call(env)
         case env["REQUEST_METHOD"]
         when "GET"
-            respond 200, headers: {}, body: env["PATH_INFO"]
+            respond 200, body: env["PATH_INFO"]
         when "POST"
             payload = env['request.payload'] || {}
             response = query payload['query'], payload['variables']
-            respond 200, body: response
+            respond 200, headers: CONTENT_TYPE_JSON, body: response
         else
-            respond 405, headers: {}, body: "Method not allowed"
+            respond 405, body: "Method not allowed"
         end
     end
 

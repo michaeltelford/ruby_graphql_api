@@ -4,8 +4,8 @@ require_relative "helpers"
 require_relative "app"
 
 # init generic handlers for outside of /graphql
-not_found = Proc.new { |env| respond 404, headers: {}, body: "Not found" }
-health = Proc.new { |env| respond 204, headers: {} }
+not_found = Proc.new { |env| respond 404, body: "Not found" }
+health = Proc.new { |env| respond 204 }
 
 # map routes to handlers
 map('/') { run not_found }
