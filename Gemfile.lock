@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    agoo (2.5.1)
     coderay (1.1.2)
     graphql (1.8.8)
     method_source (0.9.0)
@@ -10,6 +9,7 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    puma (3.12.0)
     rack (2.0.5)
     rack-jsonparser (1.0.2)
       oj (~> 3)
@@ -20,10 +20,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  agoo
   graphql
   minitest
   pry
+  puma
   rack
   rack-jsonparser
   rake

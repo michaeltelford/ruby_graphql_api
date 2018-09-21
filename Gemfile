@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rake"
 gem "rack"
-gem "agoo"
+gem "puma"
 gem "rack-jsonparser"
 gem "graphql"
 
