@@ -1,7 +1,7 @@
 require 'rake/testtask'
 
 Rake::TestTask.new(:test) do |t|
-  t.test_files = FileList['test_*.rb']
+  t.test_files = FileList['test/test_*.rb']
 end
 
 task default: :help
@@ -11,7 +11,7 @@ task :help do
     system 'bundle exec rake -D'
 end
 
-desc 'Run API on localhost:9292'
+desc 'Run API on localhost:9292 in development mode'
 task :serve do
   system 'bundle exec rackup -s puma -p 9292 -E development'
 end
