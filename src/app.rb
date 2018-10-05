@@ -1,7 +1,11 @@
 require "rack"
 require "rack/json_parser"
+require "logger"
 require_relative "helpers"
 require_relative "graphql"
+
+# Global log used throughout app.
+Log = Logger.new(STDOUT)
 
 # Init generic handlers for outside of /graphql.
 not_found = Proc.new { |env| respond 404, body: "Not found" }

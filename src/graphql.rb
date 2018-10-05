@@ -25,7 +25,8 @@ class GraphQL
             else
                 respond 405, body: "Method not allowed"
             end
-        rescue => exception
+        rescue => ex
+            Log.error "#{ex.class} - #{ex.message}"
             respond 500, body: "Internal server error"
         end
     end
