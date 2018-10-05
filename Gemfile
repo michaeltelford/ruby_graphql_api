@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 
 gem "rake"
-gem "puma"
 gem "rack"
 gem "rack-jsonparser"
+gem "puma"
 gem "graphql"
 
 group :test do
@@ -14,4 +14,8 @@ end
 
 group :development do
     gem "pry"
+end
+
+group :test, :development do
+    gem "byebug"
 end

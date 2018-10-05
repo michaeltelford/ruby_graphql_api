@@ -1,13 +1,13 @@
 require_relative 'test_helper'
 
-# we mock the bit that calls the graphql engine
+# Mock the bit that calls the graphql engine.
 class GraphQL
   def exec_schema(query, variables)
     { 'query' => query, 'variables' => variables }
   end
 end
 
-# test the api endpoints
+# Test the API endpoints.
 class SinatraAppTest < Minitest::Test
   include Rack::Test::Methods
 
@@ -36,19 +36,20 @@ class SinatraAppTest < Minitest::Test
 
   def test_post_graphql
     expected = { "query" => "hello", "variables" => "world" }
-    # puts "TEST DATA: #{rack_input(expected)['rack.input']}"
-    post '/graphql', CONTENT_TYPE_JSON, rack_input(expected)
-    puts last_response.status
+    post '/graphql', Oj.dump(expected), CONTENT_TYPE_JSON
     assert last_response.ok?
     assert_equal expected, Oj.load(last_response.body)
   end
 
-  def test_get_graphql_bad_request
-    #
+  def test_get_graphql_missing_query
+    get '/graphql'
+    assert_equal 400, last_response.status
   end
 
-  def test_post_graphql_bad_request
-    #
+  def test_post_graphql_missing_query
+    expected = { "query" => "" }
+    post '/graphql', Oj.dump(expected), CONTENT_TYPE_JSON
+    assert_equal 400, last_response.status
   end
 
   def test_graphql_method_not_allowed
