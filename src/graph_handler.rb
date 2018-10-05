@@ -1,8 +1,10 @@
 require "rack"
+require "graphql" # required here and not in the graphql dir *.rb files.
 require_relative "helpers"
+require_relative "graphql/schema"
 
 # Class providing handlers for the GraphQL engine.
-class GraphQL
+class GraphHandler
     include Rack::Utils
 
     # /graphql endpoint http handler.
@@ -37,11 +39,11 @@ private
     def handler(query, variables)
         return respond 400, body: "Missing query" if query.empty?
         response = exec_schema query, variables
-        respond 200, headers: CONTENT_TYPE_JSON, body: response
+        respond 200, headers: CONTENT_TYPE_JSON, body: response.to_h
     end
 
-    # Query the graphql engine.
+    # Query the graphql schema and return the GraphQL::Query::Result.
     def exec_schema(query, variables)
-        query
+        Schema.execute(query)
     end
 end

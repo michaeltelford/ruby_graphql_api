@@ -1,8 +1,9 @@
 require "rack"
 require "rack/json_parser"
 require "logger"
+require "byebug" if ENV["RACK_ENV"] == "development"
 require_relative "helpers"
-require_relative "graphql"
+require_relative "graph_handler"
 
 # Global log used throughout app.
 Log = Logger.new(STDOUT)
@@ -22,6 +23,6 @@ App = Rack::Builder.new do
         use Rack::Reloader, 0
         use Rack::JSONParser
 
-        run GraphQL.new
+        run GraphHandler.new
     end
 end.to_app
