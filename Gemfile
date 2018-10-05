@@ -1,12 +1,17 @@
 source "https://rubygems.org"
 
 gem "rake"
-gem "rack"
 gem "puma"
+gem "rack"
 gem "rack-jsonparser"
 gem "graphql"
 
-group :development, :test do
+group :test do
     gem "minitest"
+    gem "rack-test"
+    gem "oj"
+end
+
+group :development do
     gem "pry"
 end
