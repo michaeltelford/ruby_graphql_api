@@ -1,4 +1,0 @@
-# class CommentType < GraphQL::Schema::Object
-#   field :id, ID, null: false
-#   field :post, PostType, null: false
-# end

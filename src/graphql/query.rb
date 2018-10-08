@@ -1,21 +1,17 @@
-require "ostruct"
-require_relative "post_type"
-# require_relative "types/comment_type"
-
-class QueryType < GraphQL::Schema::Object
+class Query < GraphQL::Schema::Object
     description "The query root of this schema"
 
-    field :post, PostType, null: true do
+    field :post, Types::Post, null: true do
         description "Find a post by ID"
-        # argument :id, ID, required: true
+        argument :id, ID, required: true
     end
 
-    def post #(id:)
+    def post(id:)
         OpenStruct.new({
-            id: 1,
+            id: id,
             title: "Test Post",
             truncated_preview: "Here is my test post, hope you enjoy!",
-            # comments: []
+            comments: []
         })
     end
 end
