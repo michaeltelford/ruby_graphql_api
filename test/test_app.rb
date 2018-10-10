@@ -1,7 +1,7 @@
 require_relative 'test_helper'
 
 # Mock the bit that calls the graphql engine.
-class GraphQL
+class GraphHandler
   def exec_schema(query, variables)
     { 'query' => query, 'variables' => variables }
   end

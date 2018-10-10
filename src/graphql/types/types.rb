@@ -1,3 +1,5 @@
+require "ostruct"
+
 # Provides an entrypoint into the application defined types by firstly
 # initialising them and secondly defining their structure.
 # We do this in two separate steps to avoid cyclic dependancies between

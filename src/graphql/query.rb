@@ -7,11 +7,6 @@ class Query < GraphQL::Schema::Object
     end
 
     def post(id:)
-        OpenStruct.new({
-            id: id,
-            title: "Test Post",
-            truncated_preview: "Here is my test post, hope you enjoy!",
-            comments: []
-        })
+        Types::Post.create(id)
     end
 end

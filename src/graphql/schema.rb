@@ -1,4 +1,3 @@
-require "ostruct"
 require_relative "types/types"
 require_relative "query"
 # require_relative "mutation"
