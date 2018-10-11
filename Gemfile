@@ -5,6 +5,7 @@ gem "rack"
 gem "rack-jsonparser"
 gem "puma"
 gem "graphql"
+gem "faker"
 
 group :test do
     gem "minitest"

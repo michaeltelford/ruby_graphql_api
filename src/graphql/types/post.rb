@@ -8,15 +8,14 @@ module Types
         field :comments, [Types::Comment], null: true,
             description: "This post's comments, or null if this post has comments disabled."
 
-        def self.create(id = 1)
+        def self.create(id = SecureRandom.uuid)
             OpenStruct.new({
                 id: id,
-                title: "Test Post",
-                truncated_preview: "Here is my test post, hope you enjoy!",
+                title: Faker::Book.title,
+                truncated_preview: "#{Faker::Matz.quote}...",
                 comments: [
-                    Types::Comment.create,
-                    Types::Comment.create,
-                    Types::Comment.create
+                    Types::Comment.create(post_id: id),
+                    Types::Comment.create(post_id: id)
                 ]
             })
         end

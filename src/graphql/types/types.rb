@@ -1,4 +1,6 @@
 require "ostruct"
+require "faker"
+require "securerandom"
 
 # Provides an entrypoint into the application defined types by firstly
 # initialising them and secondly defining their structure.
