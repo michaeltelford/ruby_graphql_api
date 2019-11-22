@@ -1,8 +1,8 @@
 require_relative "types/types"
 require_relative "query"
-# require_relative "mutation"
+require_relative "mutations"
 
 class Schema < GraphQL::Schema
     query Query
-    # mutation Mutation
+    mutation Mutations
 end
